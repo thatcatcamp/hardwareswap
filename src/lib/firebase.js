@@ -3,6 +3,7 @@ import { getFirestore } from 'firebase/firestore';
 // ... import other Firebase services as neededimport { getAuth } from 'firebase/auth';
 import { getAuth } from 'firebase/auth';
 
+// these aren't secrets - safe to commit.  access requires openid on top of this
 const firebaseConfig = {
     apiKey: "AIzaSyD1EvhRq8sd1GZIRYNdKdauuVRMDsgYmvA",
     authDomain: "catcampauction.firebaseapp.com",
