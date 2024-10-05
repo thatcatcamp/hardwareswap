@@ -39,58 +39,29 @@
 
 {#if $user}
 <div class="container mt-4">
-  <h1 class="mb-4">Current Auctions</h1>
+  <h1 class="mb-4">Available hardware</h1>
   
   <div class="auction-grid">
     {#each auctions as auction}
-      <div class="auction-item" on:click={() => openDetailPage(auction.id)}>
+      <button
+        type="button"
+        class="auction-item"
+        on:click={() => openDetailPage(auction.id)}
+        on:keydown={(e) => e.key === 'Enter' && openDetailPage(auction.id)}
+      >
         {#await name2URL(auction.image)}
-        <p>loading...</p>
+          <p>loading...</p>
         {:then value}
-        <img src={value} alt={auction.title} class="auction-image">
+          <img src={value} alt={auction.title} class="auction-image">
         {:catch error}
-        <p>exception: {error.message}</p>
+          <p>exception: {error.message}</p>
         {/await}
-    <h2 class="auction-title">{auction.title}</h2>
+        <h2 class="auction-title">{auction.title}</h2>
         <p class="auction-description">{truncateDescription(auction.description)}</p>
-        <p class="auction-price">Current Bid: ${auction.currentBid}</p>
-        <p class="auction-time">Time Left: {auction.timeLeft}</p>
-      </div>
+      </button>
     {/each}
   </div>
 </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {#each auctions as auction}
-    <div class="flex items-center">
-      <div class="row" style="max-height: 10%;;">
-        <div class="col">
-          {#await name2URL(auction.image)}
-          <p>loading...</p>
-          {:then value}
-                    <img src={value} alt="Item Image" class="w-full h-full object-cover rounded-md">
-          {:catch error}
-            <p>exception: {error.message}</p>
-            {/await}
-
-        </div>
-        <div class="col">
-          <div>
-            <h3 class="text-lg font-bold">{auction.title}</h3>
-            <p class="text-gray-600">{auction.description}</p>
-
-  
-          </div>
-    
-        </div>
-      </div>
-      <div class="w-24 h-24 bg-gray-300 rounded-md mr-4">
-        <!-- Replace with actual image -->
-
-        
-      </div>
-    </div>
-    {/each}
-  </div>
 {:else}
   <p>Please sign in to view auction listings.</p>
 {/if}
