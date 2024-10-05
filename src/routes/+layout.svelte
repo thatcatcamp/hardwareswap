@@ -5,19 +5,44 @@
 </script>
 
 <div class="container mx-auto">
+  
   <header class="bg-gray-800 text-white py-4" style="background: black;">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">🐈 CAT Camp Hardware Exchange 🐈</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">🐈 CAT Camp Hardware Exchange</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/faq">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            {#if $user}
+            <li class="nav-item">
+              <button on:click={() => auth.signOut()} class="hover:underline"><a class="nav-link" href="/contact">Logout</a></button>
+            </li>
+            
+          {:else}
+            <a href="/" class="text-white hover:underline">Login</a>
+          {/if}
+  
+          </ul>
+        </div>
+      </div>
+    
       <nav>
-        {#if $user}
-          <a href="/al" class="text-white hover:underline">Auctions</a>
-          <a href="/profile" class="text-white hover:underline">Profile</a>
-          <button on:click={() => signOut(auth.currentUser)} class="hover:underline">Logout</button>
-        {:else}
-          <a href="/" class="text-white hover:underline">Login</a>
-        {/if}
       </nav>
-    </div>
+    
   </header>
   <main class="py-8">
     <slot />

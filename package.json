@@ -23,6 +23,7 @@
 	"dependencies": {
 		"@sveltestrap/sveltestrap": "^6.2.7",
 		"bootstrap": "^5.3.3",
-		"firebase": "^10.13.2"
+		"firebase": "^10.13.2",
+		"uuid": "^10.0.0"
 	}
 }
