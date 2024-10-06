@@ -32,7 +32,9 @@
      * @param {any} auctionId
      */
   function openDetailPage(auctionId) {
-    goto(`/auction/${auctionId}`);
+    //goto(`/auction/${auctionId}`);
+    document.cookie = `auctionId=${auctionId}; path=/`;
+    goto('/auction-details');
   }
 
 </script>

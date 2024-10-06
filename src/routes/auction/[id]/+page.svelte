@@ -11,11 +11,11 @@
     let auction = null;
     let loading = true;
     let error = null;
-  
+    
     onMount(async () => {
       const db = getFirestore(app);
       const auctionId = $page.params.id;
-  
+    //const auctionId = data.id; // Use the id from the data prop
       try {
         const auctionDoc = await getDoc(doc(db, 'auctions', auctionId));
         if (auctionDoc.exists()) {
@@ -98,6 +98,7 @@
 
   img {
     max-width: 150%;
+  
   }
 
     .bid-button {

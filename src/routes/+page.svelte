@@ -97,7 +97,6 @@
 
 <style>
   .hero-section {
-    background-image: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.7)), url('/images/hero-background.jpg');
     background-size: cover;
     background-position: center;
   }

@@ -2,7 +2,7 @@
   import { user } from '../stores/auth';
   import { signOut } from 'firebase/auth';
   import { auth } from '../lib/firebase'; 
-  
+  export const prerender = false;
 </script>
 
 <div class="container mx-auto">
